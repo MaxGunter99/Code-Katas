@@ -1,0 +1,2 @@
+To run code press Command + Option + n
+or left click file and select 'run code'
