@@ -5,7 +5,7 @@
 
 String.prototype.toJadenCase = function () {
 
-    let word = []
+    let word = [];
 
     for ( var i = 0; i < str.length; i++ ) {
         
@@ -21,13 +21,13 @@ String.prototype.toJadenCase = function () {
 
             word.push( str[i] )
 
-        }
+        };
 
-    }
+    };
 
     // console.log( word.join().replace(/,/g, '') )
-    return( word.join().replace(/,/g, '') )
+    return( word.join().replace(/,/g, '') );
 };
 
 var str = "How can mirrors be real if our eyes aren't real";
-str.toJadenCase()
+str.toJadenCase();
