@@ -5,28 +5,41 @@
 def namelist(names):
 
     namesList = []
-    answer = ''
     
     for i in names:
-        name = i.values()[0]
+        name = i['name']
         namesList.append( name )
 
-    if len( namesList ) >= 2:
+    if len( namesList ) >= 3:
+
         namesList.insert( len( namesList ) - 1 , '&' )
 
         beginning = namesList[ : len( namesList ) - 3 ]
         end = namesList[ len( namesList ) - 3: ]
-        full = beginning + end
+        beginning = ', '.join( beginning )
+        end = ' '.join( end )
+        full = beginning + ', ' + end
 
-        for i in full:
-            print( i )
+        print( full )
+        return full
+        
+    elif len( namesList ) == 2:
+
+        namesList.insert( len( namesList ) - 1 , '&' )
+        print( ' '.join( namesList ) )
+
+    elif len( namesList ) == 1:
+
+        print( namesList[0] )
+        return namesList[0]
         
     else:
+    
+        return ''
 
-        print( namesList )
 
-namelist([]) # ''
-namelist([{'name': 'Bart'}]) # 'Bart'
-# namelist([{'name': 'Bart'},{'name': 'Lisa'}]) # 'Bart & Lisa'
-namelist([{'name': 'Bart'},{'name': 'Lisa'},{'name': 'Maggie'}]) # 'Bart, Lisa & Maggie'
+# namelist([]) # ''
+# namelist([{'name': 'Bart'}]) # 'Bart'
+namelist([{'name': 'Bart'},{'name': 'Lisa'}]) # 'Bart & Lisa'
+# namelist([{'name': 'Bart'},{'name': 'Lisa'},{'name': 'Maggie'}]) # 'Bart, Lisa & Maggie'
 # namelist([{'name': 'Bart'},{'name': 'Lisa'},{'name': 'Maggie'},{'name': 'Homer'},{'name': 'Marge'}]) # 'Bart, Lisa, Maggie, Homer & Marge'
