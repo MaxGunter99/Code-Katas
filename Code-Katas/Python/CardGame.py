@@ -93,6 +93,7 @@ playing = True
 count = 0
 moves = 0
 faceCard = False
+lastPlayersMove = 0
 
 # --------- Start Game ---------
 
@@ -111,7 +112,6 @@ while playing == True:
         f.write( f'\nPlayer: {count} Wins!\n' )
         f.write( f'All moves in game: {moves}\n' )
         f.write( f'Player {count} has: {players[count]}\n' )
-
         playing = False
         break
 
@@ -125,6 +125,7 @@ while playing == True:
 
             f.write( f'\nPlayer: {count} is faced with a FACE CARD:\n' )
             f.write( f'{table[ len( table ) - 1 ]} ( Value: {faceCards[ table[ len( table ) - 1 ] ]} cards )\n' )
+            f.write( f'Player {count}s cards: { players[count] }\n' )
 
             # player sets down certain amount of cards, if they have a face card, they continue, else the previous person gets all the cards
             f.write( 'They place:\n' )
@@ -149,26 +150,25 @@ while playing == True:
             # if the player sets a face card down, they get to continue
             if table[ len( table ) - 1 ] in faceCards:
 
-                f.write( f'Player {count} passes!\n' )
+                f.write( f'Player {count} passes!' )
+                lastPlayersMove = count
 
             # if they don't have a face card then the previous player gets all the cards
             else:
+            
 
-                f.write( f'Player {count} had no face cards.\n' )
-                
-                if count == 0:
+                for i in table:
+                    players[ lastPlayersMove ].append( i )
 
-                    for i in table:
-                        players[ numberOfPlayers - 1 ].append( i )
+                # Person who picked up the cards starts
+                f.write( f'Player {count} had no face cards -> Player { lastPlayersMove } receives cards.\n' )
 
-                else:
-
-                    for i in table:
-                        players[ count - 1 ].append( i )
+                count = lastPlayersMove
 
                 moves += 1
                 table = []
                 faceCard = False
+                pass
 
             f.write( '\n' )
 
@@ -181,6 +181,7 @@ while playing == True:
             # player puts down a card
             table.append( currentPlayersCard )
             currentPlayer.pop( 0 )
+            lastPlayersMove = count
 
             # check for face cards
             if len( table ) != 0:
@@ -201,6 +202,7 @@ while playing == True:
                 # placing a card
                 table.append( currentPlayersCard )
                 currentPlayer.pop( 0 )
+                lastPlayersMove = count
                 moves += 1
 
                 # check for Doubles
@@ -236,6 +238,9 @@ while playing == True:
 
                         table = []
                         moves += 1
+
+    else:
+        f.write( f'Player {count} is currently out\n' )
 
     # rotate to next player or begin again
     if count == numberOfPlayers - 1:
