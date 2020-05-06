@@ -1,3 +1,5 @@
+// UNFINISHED
+
 // "WEAREDISCOVEREDFLEEATONCE"
 
 // W       E       C       R       L       T       E
@@ -49,8 +51,30 @@ function encodeRailFenceCipher(string, numberRails) {
 //     A       I       V       D       E       N 
   
 function decodeRailFenceCipher(string, numberRails) {
+
+    let rail = numberRails
+    let decoded = []
+
+    for ( var x = 0; x < numberRails; x++) {
+        decoded.push( [] )
+        for ( i in string ) {
+            decoded[ x ].push( '' )
+        }
+    }
+
+    for ( var i = 0; i < decoded.length; i++ ) {
+
+        for ( var x = i; x < string.length; x += rail ) {
+            decoded[ i ][x] = []
+        }
+        rail -= 1
+        
+    }
+
     
 
+    console.log( decoded )
+    return decoded.join('')
 
 }
 
@@ -60,8 +84,11 @@ function decodeRailFenceCipher(string, numberRails) {
 //  A   I   U
 //    X        S
 
+decodeRailFenceCipher( 'mmaiuxs' , 3 ) // maximus
+// decodeRailFenceCipher("WECRLTEERDSOEEFEAOCAIVDEN", 3) // "WEAREDISCOVEREDFLEEATONCE"
+// decodeRailFenceCipher( 'WECRLTEERDSOEEFEAOCAIVDEN' , 5 ) // WLSADOOTEEECEAEECRFINVEDR
+// decodeRailFenceCipher( 'WIREEEDSEEEACAECVDLTNROFO', 4 ) // 'WEAREDISCOVEREDFLEEATONCE'
+
 // encodeRailFenceCipher("maximus", 3)
-// decodeRailFenceCipher( 'mmaiuxs' , 3 ) // maximus
-decodeRailFenceCipher("WECRLTEERDSOEEFEAOCAIVDEN", 3) // "WEAREDISCOVEREDFLEEATONCE"
 // encodeRailFenceCipher("WEAREDISCOVEREDFLEEATONCE", 3) // "WECRLTEERDSOEEFEAOCAIVDEN"
 // encodeRailFenceCipher("Hello, World!", 3) // "Hoo!el,Wrdl l"
