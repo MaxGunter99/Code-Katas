@@ -12,20 +12,45 @@ class BubbleSortTests( unittest.TestCase ):
     def test_list_1( self ):
         unsorted_list = [ 2, 1 ]
         expected_output = [ 1, 2 ]
-        bubble_sort_output = bubble_sort( unsorted_list )
+
+        # ITERATIVE
+        use_recursion = False
+        bubble_sort_output = bubble_sort( unsorted_list, use_recursion )
+        self.assertEqual( bubble_sort_output, expected_output )
+
+        # RECURSIVE
+        use_recursion = True
+        bubble_sort_output = bubble_sort( unsorted_list, use_recursion )
         self.assertEqual( bubble_sort_output, expected_output )
 
     def test_list_2( self ):
         unsorted_list = [ 2, 1, 7, 4, 5, 3, 6 ]
         expected_output = [ 1, 2, 3, 4, 5, 6, 7 ]
-        bubble_sort_output = bubble_sort( unsorted_list )
+
+        # ITERATIVE
+        use_recursion = False
+        bubble_sort_output = bubble_sort( unsorted_list, use_recursion )
         self.assertEqual( bubble_sort_output, expected_output )
+
+        # RECURSIVE
+        use_recursion = True
+        bubble_sort_output = bubble_sort( unsorted_list, use_recursion )
+        self.assertEqual( bubble_sort_output, expected_output )
+
 
     def test_list_3( self ):
         expected_output = list(range(1, 101))
         unsorted_list = list(range(1, 101))
         random.shuffle( unsorted_list )
-        bubble_sort_output = bubble_sort( unsorted_list )
+
+        # ITERATIVE
+        use_recursion = False
+        bubble_sort_output = bubble_sort( unsorted_list, use_recursion )
+        self.assertEqual( bubble_sort_output, expected_output )
+
+        # RECURSIVE
+        use_recursion = True
+        bubble_sort_output = bubble_sort( unsorted_list, use_recursion )
         self.assertEqual( bubble_sort_output, expected_output )
 
     def test_list_4( self ):
@@ -33,6 +58,7 @@ class BubbleSortTests( unittest.TestCase ):
         Recursion is less effective with larger objects due to the call stack
         lets use a custom recursion limit and see what it does
         """
+        use_recursion = True
 
         # Set a lower recursion depth limit
         sys.setrecursionlimit(500)
@@ -42,10 +68,9 @@ class BubbleSortTests( unittest.TestCase ):
 
         # Use assertRaises to check the exception type
         with self.assertRaises( RecursionError ) as context:
-            bubble_sort(unsorted_list)
+            bubble_sort(unsorted_list, use_recursion)
         self.assertEqual("maximum recursion depth exceeded in comparison", str(context.exception))
-        # STACK OVERFLOW!!!! 
-        # RecursionError: maximum recursion depth exceeded in comparison
+        # STACK OVERFLOW!!!! RecursionError: maximum recursion depth exceeded in comparison
 
     # def test_list_5( self ):
     #     """
@@ -60,31 +85,71 @@ class BubbleSortTests( unittest.TestCase ):
     def test_string_1( self ):
         unsorted_str = "bacefdg"
         expected_output = "abcdefg"
-        bubble_sort_output = bubble_sort( unsorted_str )
+
+        # ITERATIVE
+        use_recursion = False
+        bubble_sort_output = bubble_sort( unsorted_str, use_recursion )
+        self.assertEqual( bubble_sort_output, expected_output )
+
+        # RECURSIVE
+        use_recursion = True
+        bubble_sort_output = bubble_sort( unsorted_str, use_recursion )
         self.assertEqual( bubble_sort_output, expected_output )
 
     def test_string_2( self ):
         unsorted_str = "aaaAAAbbbBBBcccCCC123"
         expected_output = "123AAABBBCCCaaabbbccc"
-        bubble_sort_output = bubble_sort( unsorted_str )
+
+        # ITERATIVE
+        use_recursion = False
+        bubble_sort_output = bubble_sort( unsorted_str, use_recursion )
+        self.assertEqual( bubble_sort_output, expected_output )
+
+        # RECURSIVE
+        use_recursion = True
+        bubble_sort_output = bubble_sort( unsorted_str, use_recursion )
         self.assertEqual( bubble_sort_output, expected_output )
 
     def test_string_3( self ):
         unsorted_str = "avkajhlskdjvhiowuhwihuajnvccmnzxvhiuvhilzudvlIDJShvalksjdvnaiuhvlauerybvusehbvjhdvhbvsjehvblibejca"
         expected_output = "DIJSaaaaaaabbbbbcccddddeeeehhhhhhhhhhhhiiiiiijjjjjjjkkkllllllmnnnorssssuuuuuuuvvvvvvvvvvvvvvwwxyzz"
-        bubble_sort_output = bubble_sort( unsorted_str )
+
+        # ITERATIVE
+        use_recursion = False
+        bubble_sort_output = bubble_sort( unsorted_str, use_recursion )
+        self.assertEqual( bubble_sort_output, expected_output )
+
+        # RECURSIVE
+        use_recursion = True
+        bubble_sort_output = bubble_sort( unsorted_str, use_recursion )
         self.assertEqual( bubble_sort_output, expected_output )
 
     def test_tuple_1( self ):
         unsorted_list = ( 2, 1 )
         expected_output = ( 1, 2 )
-        bubble_sort_output = bubble_sort( unsorted_list )
+
+        # ITERATIVE
+        use_recursion = False
+        bubble_sort_output = bubble_sort( unsorted_list, use_recursion )
+        self.assertEqual( bubble_sort_output, expected_output )
+
+        # RECURSIVE
+        use_recursion = True
+        bubble_sort_output = bubble_sort( unsorted_list, use_recursion )
         self.assertEqual( bubble_sort_output, expected_output )
 
     def test_tuple_2( self ):
         unsorted_list = ( 3, 7, 5, 2, 6, 1, 4 )
         expected_output = ( 1, 2, 3, 4, 5, 6, 7 )
-        bubble_sort_output = bubble_sort( unsorted_list )
+
+        # ITERATIVE
+        use_recursion = False
+        bubble_sort_output = bubble_sort( unsorted_list, use_recursion )
+        self.assertEqual( bubble_sort_output, expected_output )
+
+        # RECURSIVE
+        use_recursion = True
+        bubble_sort_output = bubble_sort( unsorted_list, use_recursion )
         self.assertEqual( bubble_sort_output, expected_output )
 
 if __name__ == '__main__':
