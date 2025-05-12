@@ -1,3 +1,5 @@
+# RUN WITH: python code-katas/python/ReverseString.py
+
 # Given a string, return the string reversed
 
 # regex

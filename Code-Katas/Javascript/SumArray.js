@@ -5,7 +5,7 @@ function sum (numbers) {
     const count = [0]
 
     for ( var i = 0; i < numbers.length; i++ ) {
-        if ( numbers === [] ) {
+        if ( numbers == [] ) {
             return '0'
         } else {
             count.push( numbers[i] + count[ i ] )

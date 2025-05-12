@@ -71,7 +71,7 @@ class BubbleSortTests( unittest.TestCase ):
             bubble_sort(unsorted_list, use_recursion)
         self.assertEqual("maximum recursion depth exceeded in comparison", str(context.exception))
         # STACK OVERFLOW!!!! RecursionError: maximum recursion depth exceeded in comparison
-
+        
     # def test_list_5( self ):
     #     """
     #     Recursion is less effective with larger objects, lets break it!
