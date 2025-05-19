@@ -6,14 +6,7 @@ public class EvenOrOdd {
         // Integer myNumber = 10;
         Integer myNumber = 3;
 
-        Integer evenOrOdd = myNumber % 2;
-
-        String solution;
-        if ( evenOrOdd == 0 ) {
-            solution = "Even";
-        } else {
-            solution = "Odd";
-        }
+        String solution = myNumber % 2 == 0 ? "even" : "odd";
 
         System.out.println( myNumber + " is " + solution );
 
