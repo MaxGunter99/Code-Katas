@@ -11,5 +11,4 @@ public class EvenOrOdd {
         System.out.println( myNumber + " is " + solution );
 
     }
-
 }
