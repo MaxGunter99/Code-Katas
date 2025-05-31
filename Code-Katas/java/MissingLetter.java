@@ -8,16 +8,23 @@
 // Example:
 // ['a','b','c','d','f'] -> 'e' ['O','Q','R','S'] -> 'P'
 
+import java.util.Objects;
+
 public class MissingLetter {
     
     public static void main(String[] args) throws Exception {
         
         String[][] tests = {
+            { "abc", null },
             { "acd", "b" },
             { "bce", "d" },
             { "efh", "g" } ,
+            { "jkl", null } ,
             { "abd", "c" },
             { "wyz", "x" },
+            { "abcdeghijk", "f" },
+            { "abcdefghijklmnoqrstuvwxyz", "p" },
+            { "abcdefghijklmnopqrstuvwxyz", null },
         };
 
         for ( String[] testCase: tests ) {
@@ -29,7 +36,7 @@ public class MissingLetter {
             String returnedLetter = findMissingAlphabetLetter( test );
             System.out.println( "Returned: " + returnedLetter );
             
-            if ( !solution.equals( returnedLetter ) ) {
+            if ( !Objects.equals(solution, returnedLetter) ) {
                 System.out.println( "Status: FAIL" );
                 throw new Exception( "\n\n Expected: " + solution + " but got: " + returnedLetter + "\n" );
             }
