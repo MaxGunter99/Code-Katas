@@ -22,13 +22,28 @@ public class Permutations {
                 false 
             ),
             new TestCase( 
-                "Destiny", 
-                "ynitseD", 
+                "Evil", 
+                "Vile", 
                 true 
             ),
             new TestCase( 
-                "Hello World", 
-                "dlrow olleh", 
+                "Stressed", 
+                "Desserts", 
+                true 
+            ),
+            new TestCase( 
+                "Astronomer", 
+                "Moon starer", 
+                true 
+            ),
+            new TestCase( 
+                "Eleven plus two", 
+                "Twelve plus one", 
+                true 
+            ),
+            new TestCase( 
+                "Silent", 
+                "Listen", 
                 true 
             ),
         };
@@ -68,8 +83,8 @@ public class Permutations {
         boolean isPermutation = true;
 
         // ... logic
-        String lowerCasePermutation = permutation.toLowerCase();
-        String lowerCaseGivenString = givenString.toLowerCase();
+        String lowerCasePermutation = permutation.toLowerCase().replace(" ", "");
+        String lowerCaseGivenString = givenString.toLowerCase().replace(" ", "");
 
         String letterBank = lowerCasePermutation;
         
@@ -77,14 +92,14 @@ public class Permutations {
             String letter = Character.toString( i );
             boolean letterInBank = letterBank.contains( letter );
 
-            // System.out.println( "letterBank: " + letterBank );
-            // System.out.println( "letter: " + letter );
+            System.out.println( "letterBank: " + letterBank );
+            System.out.println( "letter: " + letter );
 
             if ( letterInBank ) {
                 letterBank = letterBank.replaceFirst(letter, "");
 
             } else {
-                System.out.println( "Letter: " + letter + " is not in the letterBank:" + letterBank );
+                System.out.println( "Letter: " + letter + " is not in the letterBank: " + letterBank );
                 isPermutation = false;
                 break;
             }

@@ -39,7 +39,7 @@ public class toWeirdCase {
 
         StringBuilder mySolution = new StringBuilder();
 
-        for( char i: myString.toCharArray() ) {
+        for( char _: myString.toCharArray() ) {
 
             char letter = myString.charAt( index );
             // System.out.println( letter );

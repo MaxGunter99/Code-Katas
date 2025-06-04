@@ -1,4 +1,3 @@
-import java.util.List;
 
 public class SumArray {
 
@@ -18,10 +17,10 @@ public class SumArray {
         list1[2] = 5;
 
         // easier way
-        Integer[] list2 = { 100, 4, 7, 320 };
-        Integer[] list3 = { 1, 1 };
-        Integer[] list4 = { 0, 0, 0, 0, 0 };
-        Integer[] list5 = {};
+        // Integer[] list2 = { 100, 4, 7, 320 };
+        // Integer[] list3 = { 1, 1 };
+        // Integer[] list4 = { 0, 0, 0, 0, 0 };
+        // Integer[] list5 = {};
         double[] list6 = { 0.5, 5, 24.7 };
 
         // Integer[] testList = list1;
