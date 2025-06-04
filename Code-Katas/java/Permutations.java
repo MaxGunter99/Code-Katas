@@ -37,19 +37,19 @@ public class Permutations {
 
         for ( TestCase test: tests ) {
             
-            boolean functionResponse = checkPermutations( test.permutation, test.givenString );
+            boolean functionResponse = checkPermutations( test.permutation(), test.givenString() );
             System.out.println();
 
-            if ( functionResponse != test.givenStringIsPermutation ) {
+            if ( functionResponse != test.givenStringIsPermutation() ) {
 
                 System.out.println( "Test (" + testId + ") --- FAILED" );
-                System.out.println( "Permutation: " + test.permutation );
-                System.out.println( "Given String: " + test.givenString );
+                System.out.println( "Permutation: " + test.permutation() );
+                System.out.println( "Given String: " + test.givenString() );
                 throw new Exception(
                     "\n\n Function checkPermutations returned: "
                     + functionResponse 
                     + " , should equal: "
-                    + test.givenStringIsPermutation
+                    + test.givenStringIsPermutation()
                     + "\n\n"
                 );
 
@@ -74,7 +74,7 @@ public class Permutations {
         String letterBank = lowerCasePermutation;
         
         for ( char i: lowerCaseGivenString.toCharArray() ) {
-            String letter = Character.toString(i);
+            String letter = Character.toString( i );
             boolean letterInBank = letterBank.contains( letter );
 
             // System.out.println( "letterBank: " + letterBank );
@@ -98,19 +98,19 @@ public class Permutations {
 }
 
 // USING CLASS TO STORE TEST CASE DATA
-class TestCase {
+// class TestCase {
     
-    String permutation;
-    String givenString;
-    Boolean givenStringIsPermutation;
+//     String permutation;
+//     String givenString;
+//     Boolean givenStringIsPermutation;
 
-    public TestCase( String permutation, String givenString, boolean givenStringIsPermutation ) {
-        this.permutation = permutation;
-        this.givenString = givenString;
-        this.givenStringIsPermutation = givenStringIsPermutation;
-    }
+//     public TestCase( String permutation, String givenString, boolean givenStringIsPermutation ) {
+//         this.permutation = permutation;
+//         this.givenString = givenString;
+//         this.givenStringIsPermutation = givenStringIsPermutation;
+//     }
     
-}
+// }
     
 // USING RECORD TO STORE TEST CASE DATA ( requires java 17 )
-// record TestCase( String permutation, String givenString, boolean givenStringIsPermutation ){}
+record TestCase( String permutation, String givenString, boolean givenStringIsPermutation ){}
